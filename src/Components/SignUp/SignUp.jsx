@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
+import { data } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const SignUp = () => {
 
@@ -28,6 +30,22 @@ const [error,setError]= useState('')
         SignUpUser(email,password)
         .then(res=>{
             console.log(res.user);
+            const signInTime = res?.user?.metadata?.lastSignInTime
+
+            const newUser = {name,email,signInTime}
+            fetch('http://localhost:5000/users',{
+                method:"POST",
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(newUser)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+               if(data.insertedId){
+                toast.success('user added in database')
+               }
+            })
         })
         .catch(err=>{
             console.log('error',err.message);
@@ -100,9 +118,15 @@ const [error,setError]= useState('')
           </div>
         </form>
   
-        
+        <Toaster />
        
+      
+
+      {
+        error && toast.success('error happened')
+      }
       </div>
+      
     );
 
 }

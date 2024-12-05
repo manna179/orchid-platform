@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddMovies = () => {
   const handleAddMovies = (e) => {
@@ -7,12 +8,13 @@ const AddMovies = () => {
     const poster = form.poster.value;
     const title = form.title.value;
     const genre = form.genre.value;
-    const duration =parseFloat(form.runtime.value) ;
+    const duration =`${form.hour.value}: ${form.minute.value}`
     const release = form.year.value;
     const rating = form.rating.value;
     const summary = form.summary.value;
+    // const uploader = 
 
-    const movies = { poster, title, genre, duration, release, rating, summary };
+    const movies = { poster, title, genre, duration, release, rating, summary, };
     console.log(movies);
 
     fetch('http://localhost:5000/movies',{
@@ -25,6 +27,9 @@ const AddMovies = () => {
     .then(res=>res.json())
     .then(data=>{
         console.log('data added to DB', data);
+        if(data.insertedId){
+          Swal.fire('movies added successfully!')
+        }
     })
   };
   return (
@@ -84,13 +89,22 @@ const AddMovies = () => {
               <label className="label">
                 <span className="label-text">Duration </span>
               </label>
+              <div className="">
               <input
                 type="number"
-                name="runtime"
-                placeholder=" movie duration"
+                name="hour"
+                placeholder=" movie hour"
                 className="input input-bordered"
                 required
               />
+              <input
+                type="number"
+                name="minute"
+                placeholder=" movie minute"
+                className="input input-bordered"
+                required
+              />
+              </div>
             </div>
           </div>
           {/* form third row */}

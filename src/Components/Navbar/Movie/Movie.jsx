@@ -21,7 +21,7 @@ const Movie = () => {
         )
      }
      </div>
-     <button className="btn w-full btn-primary my-10">See All Movies</button>
+     
     </div>
   );
 

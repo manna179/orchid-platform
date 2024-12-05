@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleMovie = ({singleMovie}) => {
     const {poster,title,genre,duration,release,rating}= singleMovie
@@ -15,7 +16,7 @@ const SingleMovie = ({singleMovie}) => {
           <p>Release year: {release}</p>
           <p>Rating: {rating}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">See Details</button>
+           <Link to='/movieDetails'> <button className="btn btn-primary">See Details</button></Link>
           </div>
         </div>
       </div>

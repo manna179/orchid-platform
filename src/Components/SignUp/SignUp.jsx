@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
-import { data } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 const SignUp = () => {
@@ -116,6 +116,7 @@ const [error,setError]= useState('')
              register
             </button>
           </div>
+          <p>Already have an account? <Link to='/login'>Login</Link></p>
         </form>
   
         <Toaster />

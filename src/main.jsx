@@ -13,6 +13,7 @@ import SignUp from "./Components/SignUp/SignUp.jsx";
 import Movie from "./Components/Navbar/Movie/Movie.jsx";
 import MovieDetails from "./Components/MovieDetails/MovieDetails.jsx";
 import Login from "./Components/Login/Login.jsx";
+import PrivateRoute from "./Pages/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,12 +42,15 @@ const router = createBrowserRouter([
       {
         
           path: "/movies",
-          element: <AddMovies></AddMovies>,
+          element: <PrivateRoute>
+            <AddMovies></AddMovies>
+          </PrivateRoute>,
         
       },
       {
-        path:'/movieDetails',
-        element:<MovieDetails></MovieDetails>
+        path:'/movie/:id',
+        element:<MovieDetails></MovieDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/movies/${params.id}`)
       }
     ],
   },

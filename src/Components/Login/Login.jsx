@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
 
         signInUser(email,password)
         .then(res=>{
-            console.log(res.user);
+            // console.log(res.user);
             const user = res.user;
             setUser(user)
         })
@@ -30,11 +31,12 @@ const Login = () => {
     const handleLoginWithGoogle=()=>{
         handleGoogleLogin()
         .then(res=>{
-            console.log(res.user);
+            // console.log(res.user);
         })
         .catch(err=>{
-            console.log(err.message);
-            setError(err.message)
+            // console.log(err.message);
+            const result = (err.message) 
+            setError(result)
         })
     }
     return (
@@ -86,8 +88,10 @@ const Login = () => {
 
           <button onClick={handleLoginWithGoogle} className='btn btn-primary btn-wide'>Login With Google</button>
 
-
-
+      {
+        error&& toast.success('please check again')
+      }
+  <Toaster></Toaster>
         </form>
   
       

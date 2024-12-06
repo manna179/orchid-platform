@@ -58,7 +58,7 @@ const Navbar = () => {
       <div className="navbar-end">
 
 
-       {user&& user?.email ? <div class="relative group  bg-gray-200 flex items-center justify-center rounded-md">
+       {user&& user?.email ? <div className="relative group  bg-gray-200 flex items-center justify-center rounded-md">
         <button data-aos="zoom-in" title={user.email} >
             <img
               className="h-8  w-8 bg-cover border-red-600 border-2 rounded-full object-cover"
@@ -67,7 +67,7 @@ const Navbar = () => {
             />
           </button>
 
-          <button onClick={handleSignOut} class="absolute hidden group-hover:flex bg-red-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-red-600 mr-4">
+          <button onClick={handleSignOut} className="absolute hidden group-hover:flex bg-red-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-red-600 mr-4">
           <NavLink to="/login" className="font-semibold">
             Logout
           </NavLink>

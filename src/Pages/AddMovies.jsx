@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddMovies = () => {
+  const {user}=useContext(AuthContext)
   const handleAddMovies = (e) => {
     e.preventDefault();
     const form = e.target;
     const poster = form.poster.value;
     const title = form.title.value;
     const genre = form.genre.value;
-    const duration =`${form.hour.value}: ${form.minute.value}`
+    const duration =`${form.hour.value} : ${form.minute.value}`
     const release = form.year.value;
     const rating = form.rating.value;
     const summary = form.summary.value;
+    const movieUser = user.email
     // const uploader = 
 
-    const movies = { poster, title, genre, duration, release, rating, summary, };
+    const movies = { poster, title, genre, duration, release, rating, summary, movieUser};
     console.log(movies);
 
     fetch('http://localhost:5000/movies',{
@@ -96,7 +99,7 @@ const AddMovies = () => {
                 placeholder=" movie hour"
                 className="input input-bordered"
                 required
-              />
+              /> 
               <input
                 type="number"
                 name="minute"

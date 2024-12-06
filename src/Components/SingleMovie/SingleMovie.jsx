@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const SingleMovie = ({singleMovie}) => {
-    const {poster,title,genre,duration,release,rating}= singleMovie
+  const {user} = useContext(AuthContext)
+    const {_id,poster,title,genre,duration,release,rating}= singleMovie
     return (
         <div  className="card p-4 rounded-lg shadow-xl">
         <div>
@@ -16,7 +18,7 @@ const SingleMovie = ({singleMovie}) => {
           <p>Release year: {release}</p>
           <p>Rating: {rating}</p>
           <div className="card-actions justify-end">
-           <Link to='/movieDetails'> <button className="btn btn-primary">See Details</button></Link>
+           <Link to={`/movie/${_id}`}> <button className="btn btn-primary">See Details</button></Link>
           </div>
         </div>
       </div>

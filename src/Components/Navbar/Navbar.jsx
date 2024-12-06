@@ -48,7 +48,7 @@ const Navbar = () => {
             <NavLink to="/movie">All Movies</NavLink>
           </li>
           <li>
-            <NavLink>My Favorites</NavLink>
+            <NavLink to='/favorite'>My Favorites</NavLink>
           </li>
           <li>
             <NavLink to="/movies">Add Movies</NavLink>

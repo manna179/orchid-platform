@@ -14,6 +14,7 @@ import Movie from "./Components/Navbar/Movie/Movie.jsx";
 import MovieDetails from "./Components/MovieDetails/MovieDetails.jsx";
 import Login from "./Components/Login/Login.jsx";
 import PrivateRoute from "./Pages/PrivateRoute.jsx";
+import FavoriteMovie from "./Pages/FavoriteMovie.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,8 +50,15 @@ const router = createBrowserRouter([
       },
       {
         path:'/movie/:id',
-        element:<MovieDetails></MovieDetails>,
+        element:<PrivateRoute>
+          <MovieDetails></MovieDetails>
+        </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/movies/${params.id}`)
+      },
+      {
+        path:'/favorite',
+        element:<FavoriteMovie></FavoriteMovie>,
+        loader:()=>fetch('http://localhost:5000/favorite')
       }
     ],
   },

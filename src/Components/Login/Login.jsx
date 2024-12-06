@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -95,7 +95,7 @@ const Login = () => {
         </form>
   
       
-       
+        <Navigate state={location.pathname}></Navigate>
       
 
       

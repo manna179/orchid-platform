@@ -18,6 +18,8 @@ import FavoriteMovie from "./Pages/FavoriteMovie.jsx";
 import ErrorPage from "./Pages/ErrorPage.jsx";
 import Extra from "./Pages/Extra.jsx";
 import MyForm from "./Pages/MyForm.jsx";
+import AddMovieForm from "./Pages/AddMovieForm.jsx";
+import FavMovies from "./Pages/FavMovies.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +63,12 @@ const router = createBrowserRouter([
       {
         path:'/favorite',
         element:<FavoriteMovie></FavoriteMovie>,
-        loader:()=>fetch('http://localhost:5000/favorite')
+        
+      },
+      {
+        path:'/favorite/:id',
+        element:<FavMovies></FavMovies>,
+        loader:()=>fetch(`http://localhost:5000/favorite/${id}`)
       },
       {
         path:'/extra',
@@ -69,7 +76,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/updateMovie',
-        element:<MyForm></MyForm>
+        element:<AddMovieForm></AddMovieForm>
       }
     ],
   },

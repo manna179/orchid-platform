@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const AddMovies = () => {
   const {user}=useContext(AuthContext)
@@ -15,7 +16,7 @@ const AddMovies = () => {
     const rating = form.rating.value;
     const summary = form.summary.value;
     const movieUser = user.email
-    // const uploader = 
+   
 
     const movies = { poster, title, genre, duration, release, rating, summary, movieUser};
     console.log(movies);
@@ -151,7 +152,7 @@ const AddMovies = () => {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Add Movie</button>
+           <Link to='/' className="flex justify-end"> <button  className="btn btn-primary btn-wide bg-red-400 text-black border-none hover:text-white">Add Movie</button></Link>
           </div>
         </form>
       </div>

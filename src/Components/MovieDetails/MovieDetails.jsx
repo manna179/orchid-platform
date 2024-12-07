@@ -1,4 +1,6 @@
 import React from "react";
+
+import toast, { Toaster } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -31,7 +33,7 @@ const handleAddFavorites=()=>{
   })
   .then(res=>res.json())
   .then(data=>{
-    console.log('favorite movie added to db',data);
+   toast.success('favorite movie added to db',data);
   })
 }
 
@@ -51,6 +53,8 @@ const handleAddFavorites=()=>{
   };
   return (
     <div className="card glass w-11/12 mx-auto mt-10">
+
+     
       <figure>
         <img
           className="rounded-md m-4 mx-4 p-4"
@@ -72,7 +76,7 @@ const handleAddFavorites=()=>{
           </button>
           
            <Link>
-            
+            <Toaster></Toaster>
            <button onClick={handleAddFavorites} className="btn bg-green-300">Add to Favorites</button>
            
            </Link>

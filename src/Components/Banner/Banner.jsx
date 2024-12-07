@@ -5,7 +5,7 @@ const Banner = () => {
         <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img
-      src="https://i.ibb.co.com/qF2sXcV/Harry-Potter-in-Deathly-Hallows.jpg"
+      src="https://i.ibb.co.com/svzsNR0/19-John-Wick-3-copy.jpg"
       className="w-full h-[400px]" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide4" className="btn btn-circle">❮</a>
@@ -14,7 +14,7 @@ const Banner = () => {
   </div>
   <div id="slide2" className="carousel-item relative w-full">
     <img
-      src="https://i.ibb.co.com/svzsNR0/19-John-Wick-3-copy.jpg"
+      src="https://i.ibb.co.com/qF2sXcV/Harry-Potter-in-Deathly-Hallows.jpg"
       className="w-full h-[400px]" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide1" className="btn btn-circle">❮</a>

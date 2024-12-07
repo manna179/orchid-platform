@@ -9,12 +9,15 @@ import Movie from "./Navbar/Movie/Movie";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Extra from "../Pages/Extra";
+import AddMovieForm from "../Pages/AddMovieForm";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
 
   const {user}=useContext(AuthContext)
   return (
     <div>
+     
  <div className="flex justify-end mr-4">
  <label className="swap swap-rotate ">
   {/* this hidden checkbox controls the state */}
@@ -59,6 +62,8 @@ const Home = () => {
       <div className="flex justify-center">
       <Extra></Extra>
       </div>
+
+      <AddMovieForm></AddMovieForm>
     </div>
   );
 };

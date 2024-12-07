@@ -47,7 +47,7 @@ const AddMovies = () => {
       </div>
       <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
         <form onSubmit={handleAddMovies} className="card-body">
-          {/* form first row */}
+          
           <div className="flex flex-col lg:flex-row gap-5">
             <div className="form-control flex-1">
               <label className="label">
@@ -74,7 +74,7 @@ const AddMovies = () => {
               />
             </div>
           </div>
-          {/* form second row */}
+         
           <div className="flex flex-col lg:flex-row gap-5">
             <div className="form-control flex-1">
               <label className="label">
@@ -110,7 +110,7 @@ const AddMovies = () => {
               </div>
             </div>
           </div>
-          {/* form third row */}
+        
           <div className="flex flex-col lg:flex-row gap-5">
             <div className="form-control flex-1">
               <label className="label">

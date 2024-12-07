@@ -59,21 +59,21 @@ const handleAddFavorites=()=>{
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Movie Name : {info.title}</h2>
-        <p>Genre : {info.genre}</p>
-        <p>duration : {info.duration}</p>
-        <p>release : {info.release}</p>
-        <p>rating : {info.rating} </p>
-        <p>summary : {info.summary}</p>
+        <h2 className="card-title text-red-400">Movie Name :<span className="text-black"> {info.title}</span></h2>
+        <p className="text-red-400 ">Genre : <span className="text-black font-medium">{info.genre}</span></p>
+        <p className="text-red-400 ">duration : <span className="text-black font-medium">{info.duration}</span> hours</p>
+        <p className="text-red-400 ">release : <span className="text-black font-medium">{info.release}</span></p>
+        <p className="text-red-400 ">rating : <span className="text-black font-medium">{info.rating}</span> </p>
+        <p className="text-gray-500">summary : {info.summary}</p>
 
         <div className="card-actions justify-end">
-          <button className="btn btn-primary" onClick={() => handleDelete(_id)}>
+          <button className="btn bg-red-400" onClick={() => handleDelete(_id)}>
             Delete Movie
           </button>
           
            <Link>
             
-           <button onClick={handleAddFavorites} className="btn btn-primary">Add to Favorites</button>
+           <button onClick={handleAddFavorites} className="btn bg-green-300">Add to Favorites</button>
            
            </Link>
          

@@ -24,7 +24,7 @@ const Navbar = () => {
               <NavLink to="/movie">all Movie</NavLink>
             </li>
             <li>
-              <NavLink>My Favorites</NavLink>
+              <NavLink to='/favorite'>My Favorites</NavLink>
             </li>
             <li>
               <NavLink to="/movies">Add Movies</NavLink>
@@ -33,9 +33,9 @@ const Navbar = () => {
         </div>
         <h1 className=" text-xl">
           <img
-            className="w-12 h-12"
+            className="w-12 h-12 bg-transparent rounded-sm "
             src="https://i.ibb.co.com/4gpGNXt/movielogo.jpg"
-            alt=""
+            alt="logo"
           />
         </h1>
       </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
             />
           </button>
 
-          <button onClick={handleSignOut} className="absolute hidden group-hover:flex bg-red-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-red-600 mr-4">
+          <button title={user?.email} onClick={handleSignOut} className="absolute hidden group-hover:flex bg-red-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-red-600 mr-4">
           <NavLink to="/login" className="font-semibold">
             Logout
           </NavLink>

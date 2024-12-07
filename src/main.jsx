@@ -15,6 +15,9 @@ import MovieDetails from "./Components/MovieDetails/MovieDetails.jsx";
 import Login from "./Components/Login/Login.jsx";
 import PrivateRoute from "./Pages/PrivateRoute.jsx";
 import FavoriteMovie from "./Pages/FavoriteMovie.jsx";
+import ErrorPage from "./Pages/ErrorPage.jsx";
+import Extra from "./Pages/Extra.jsx";
+import MyForm from "./Pages/MyForm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,9 +62,21 @@ const router = createBrowserRouter([
         path:'/favorite',
         element:<FavoriteMovie></FavoriteMovie>,
         loader:()=>fetch('http://localhost:5000/favorite')
+      },
+      {
+        path:'/extra',
+        element:<Extra></Extra>
+      },
+      {
+        path:'/updateMovie',
+        element:<MyForm></MyForm>
       }
     ],
   },
+  {
+    path:'*',
+    element:<ErrorPage></ErrorPage>
+  }
  
   
 ]);

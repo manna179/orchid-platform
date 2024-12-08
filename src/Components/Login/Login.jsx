@@ -12,16 +12,16 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email,password);
+       
 
         signInUser(email,password)
         .then(res=>{
-            // console.log(res.user);
+            
             const user = res.user;
             setUser(user)
         })
         .catch(err=>{
-            console.log(err);
+           
             setError(err.message)
             
         })
@@ -31,10 +31,10 @@ const Login = () => {
     const handleLoginWithGoogle=()=>{
         handleGoogleLogin()
         .then(res=>{
-            // console.log(res.user);
+           
         })
         .catch(err=>{
-            // console.log(err.message);
+            
             const result = (err.message) 
             setError(result)
         })

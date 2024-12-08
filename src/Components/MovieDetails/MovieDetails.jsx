@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2";
+
 
 const MovieDetails = () => {
   const info = useLoaderData();

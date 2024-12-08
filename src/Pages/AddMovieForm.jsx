@@ -10,7 +10,7 @@ const AddMovieForm = () => {
     formState: { errors },
   } = useForm();
 
-  // Genre options for multi-select
+  
   const genreOptions = [
     { value: "Action", label: "Action" },
     { value: "Comedy", label: "Comedy" },
@@ -19,13 +19,13 @@ const AddMovieForm = () => {
     { value: "Sci-Fi", label: "Sci-Fi" },
   ];
 
-  // Release year options (last 50 years)
+  
   const releaseYearOptions = Array.from({ length: 50 }, (_, i) => {
     const year = 2023 - i;
     return { value: year, label: year };
   });
 
-  // Form submission handler
+
   const onSubmit = async (data) => {
     const formattedData = {
       ...data,
@@ -36,8 +36,8 @@ const AddMovieForm = () => {
     try {
       const res = await fetch("https://orchid-server-side-rho.vercel.app/movies", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, // Ensure the backend knows it's receiving JSON
-        body: JSON.stringify(formattedData), // Convert to JSON string
+        headers: { "Content-Type": "application/json" }, 
+        body: JSON.stringify(formattedData), 
       });
   
       const info = await res.json();
@@ -52,7 +52,7 @@ const AddMovieForm = () => {
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
       <h1 className="text-2xl font-bold text-center mb-6">Add Movie</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Movie Poster */}
+        
         <div>
           <label htmlFor="poster" className="block font-medium mb-1">
             Movie Poster (URL)
@@ -74,7 +74,7 @@ const AddMovieForm = () => {
           )}
         </div>
 
-        {/* Movie Title */}
+       
         <div>
           <label htmlFor="title" className="block font-medium mb-1">
             Movie Title
@@ -90,7 +90,7 @@ const AddMovieForm = () => {
           )}
         </div>
 
-        {/* Genre (Multi-Select) */}
+       
         <div>
           <label htmlFor="genre" className="block font-medium mb-1">
             Genre
@@ -115,7 +115,7 @@ const AddMovieForm = () => {
           )}
         </div>
 
-        {/* Release Year */}
+   
         <div>
           <label htmlFor="releaseYear" className="block font-medium mb-1">
             Release Year
@@ -139,7 +139,7 @@ const AddMovieForm = () => {
           )}
         </div>
 
-        {/* Duration */}
+    
         <div className="grid grid-cols-1 gap-4">
           <div>
             <label htmlFor="minutes" className="block font-medium mb-1">
@@ -160,7 +160,7 @@ const AddMovieForm = () => {
           </div>
         </div>
 
-        {/* Rating */}
+       
         <div>
           <label htmlFor="rating" className="block font-medium mb-1">
             Rating
@@ -182,7 +182,7 @@ const AddMovieForm = () => {
           )}
         </div>
 
-        {/* Summary */}
+     
         <div>
           <label htmlFor="summary" className="block font-medium mb-1">
             Summary
@@ -198,7 +198,7 @@ const AddMovieForm = () => {
           )}
         </div>
 
-        {/* Submit Button */}
+      
         <button
           type="submit"
           className="w-full bg-purple-600 text-white py-2 rounded-md font-medium hover:bg-purple-700"

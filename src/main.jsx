@@ -24,6 +24,7 @@ import FavMovies from "./Pages/FavMovies.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement:<ErrorPage></ErrorPage>,
     element: <Header></Header>,
     children: [
       {

@@ -13,7 +13,7 @@ const [error,setError]= useState('')
         const photo = e.target.image.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name,email,password,photo);
+        // console.log(name,email,password,photo);
         
         if (!/[a-z]/.test(password)) {
           setError("password should have one lowercase");
@@ -48,7 +48,8 @@ const [error,setError]= useState('')
             })
         })
         .catch(err=>{
-            console.log('error',err.message);
+            // console.log('error',err.message);
+            setError(err.message)
         })
 
     }

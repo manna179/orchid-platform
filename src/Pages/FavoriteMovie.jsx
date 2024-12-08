@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
 import FavMovies from "./FavMovies";
 
 const FavoriteMovie = () => {
   const { user } = useContext(AuthContext);
-  // const allFavoriteMovie = useLoaderData();
+ 
   const [data,setData]=useState([])
 
   const getAllFavMovies = async () => {
@@ -16,7 +15,7 @@ const FavoriteMovie = () => {
       },
     });
     const data = await res.json();
-    console.log(data);
+   
     setData(data)
 
   };

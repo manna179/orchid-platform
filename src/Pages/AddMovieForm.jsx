@@ -34,7 +34,7 @@ const AddMovieForm = () => {
     };
   
     try {
-      const res = await fetch("http://localhost:5000/movies", {
+      const res = await fetch("https://orchid-server-side-rho.vercel.app/movies", {
         method: "POST",
         headers: { "Content-Type": "application/json" }, // Ensure the backend knows it's receiving JSON
         body: JSON.stringify(formattedData), // Convert to JSON string
@@ -62,7 +62,7 @@ const AddMovieForm = () => {
             {...register("poster", {
               required: "Movie poster URL is required",
               pattern: {
-                value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i,
+                value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|webp|gif|svg))$/i,
                 message: "Enter a valid image URL",
               },
             })}

@@ -21,7 +21,7 @@ const AddMovies = () => {
     const movies = { poster, title, genre, duration, release, rating, summary, movieUser};
     console.log(movies);
 
-    fetch('http://localhost:5000/movies',{
+    fetch('https://orchid-server-side-rho.vercel.app/movies',{
         method:"POST",
         headers:{
             'content-type':'application/json'

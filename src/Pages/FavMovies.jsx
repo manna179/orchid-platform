@@ -5,7 +5,7 @@ const FavMovies = ({singleFav,getAllFavMovies}) => {
   console.log(singleFav);
   
   
-    const {_id, poster, title, genre, duration, release, rating, summary, movieUser}=singleFav;
+    const {_id, poster, title, genre, rating, summary, movieUser}=singleFav;
     console.log(_id);
     
     
@@ -13,7 +13,7 @@ const FavMovies = ({singleFav,getAllFavMovies}) => {
     const handleDeleteData = (_id) => {
       console.log(_id);
   
-      fetch(`http://localhost:5000/favorite/${_id}`,{
+      fetch(`https://orchid-server-side-rho.vercel.app/favorite/${_id}`,{
         method:"DELETE"
       })
       .then(res=>res.json())
@@ -36,8 +36,8 @@ const FavMovies = ({singleFav,getAllFavMovies}) => {
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p className="text-red-400">Genre : <span className="text-black font-medium">{genre}</span></p>
-        <p className="text-red-400 ">Duration : <span className="text-black font-medium">{duration} </span> hours</p>
-        <p className="text-red-400 ">Release : <span className="text-black font-medium">{release }</span></p>
+        
+       
         <p className="text-red-400 ">Rating : <span className="text-black font-medium">{rating}</span></p>
         <p className="text-red-400 "> summary : <span className="text-gray-500 font-semibold text-sm">{summary}</span></p>
         <div className="card-actions justify-end">

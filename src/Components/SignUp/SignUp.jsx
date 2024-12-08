@@ -33,7 +33,7 @@ const [error,setError]= useState('')
             const signInTime = res?.user?.metadata?.lastSignInTime
 
             const newUser = {name,email,signInTime}
-            fetch('http://localhost:5000/users',{
+            fetch('https://orchid-server-side-rho.vercel.app/users',{
                 method:"POST",
                 headers:{
                     'content-type':'application/json'

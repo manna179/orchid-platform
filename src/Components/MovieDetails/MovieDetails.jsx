@@ -14,17 +14,17 @@ const handleAddFavorites=()=>{
   const poster = info.poster;
   const title = info.title;
   const genre = info.genre;
-  const duration = info.duration;
-  const release = info.release;
+  const minutes = info.duration;
+  const releaseYear = info.release;
   const rating = info.rating;
   const summary = info.summary;
   const movieUser = info.movieUser;
   const id = info._id
 
-  console.log(poster,title,genre,duration,release,rating,summary,movieUser,id);
-  const favorites = {poster,title,genre,duration,release,rating,summary,movieUser,id}
+  console.log(poster,title,genre,minutes,releaseYear,rating,summary,movieUser,id);
+  const favorites = {poster,title,genre,minutes,releaseYear,rating,summary,movieUser,id}
 
-  fetch('http://localhost:5000/favorite',{
+  fetch('https://orchid-server-side-rho.vercel.app/favorite',{
     method:"POST",
     headers:{
       'content-type':'application/json'
@@ -43,7 +43,7 @@ const handleAddFavorites=()=>{
   const handleDelete = (id) => {
    
 
-    fetch(`http://localhost:5000/movies/${id}`,{
+    fetch(`https://orchid-server-side-rho.vercel.app/movies/${id}`,{
       method:"DELETE"
     })
     .then(res=>res.json())
@@ -60,7 +60,7 @@ const handleAddFavorites=()=>{
      
       <figure>
         <img
-          className="rounded-md m-4 mx-4 p-4"
+          className="rounded-md m-4 h-[700px] p-4 "
           src={info.poster}
           alt={info.title}
         />
@@ -68,8 +68,8 @@ const handleAddFavorites=()=>{
       <div className="card-body">
         <h2 className="card-title text-red-400">Movie Name :<span className="text-black"> {info.title}</span></h2>
         <p className="text-red-400 ">Genre : <span className="text-black font-medium">{info.genre}</span></p>
-        <p className="text-red-400 ">duration : <span className="text-black font-medium">{info.duration}</span> hours</p>
-        <p className="text-red-400 ">release : <span className="text-black font-medium">{info.release}</span></p>
+        <p className="text-red-400 ">duration : <span className="text-black font-medium">{info.minutes}</span> Min</p>
+        <p className="text-red-400 ">release : <span className="text-black font-medium">{info.releaseYear}</span></p>
         <p className="text-red-400 ">rating : <span className="text-black font-medium">{info.rating}</span> </p>
         <p className="text-gray-500">summary : {info.summary}</p>
 

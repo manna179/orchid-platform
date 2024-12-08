@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:5000/movies')
+        loader:()=>fetch('https://orchid-server-side-rho.vercel.app/movies')
 
       },
       {
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path:'/movie',
         element:<Movie></Movie>,
-        loader:()=>fetch('http://localhost:5000/movies')
+        loader:()=>fetch('https://orchid-server-side-rho.vercel.app/movies')
       },
       {
         
@@ -58,17 +58,19 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <MovieDetails></MovieDetails>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/movies/${params.id}`)
+        loader: ({ params }) => fetch(`https://orchid-server-side-rho.vercel.app/movies/${params.id}`)
       },
       {
         path:'/favorite',
-        element:<FavoriteMovie></FavoriteMovie>,
+        element:<PrivateRoute>
+          <FavoriteMovie></FavoriteMovie>
+        </PrivateRoute>,
         
       },
       {
         path:'/favorite/:id',
         element:<FavMovies></FavMovies>,
-        loader:()=>fetch(`http://localhost:5000/favorite/${id}`)
+        loader:()=>fetch(`https://orchid-server-side-rho.vercel.app/favorite/${id}`)
       },
       {
         path:'/extra',

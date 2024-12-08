@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const MovieDetails = () => {
   const info = useLoaderData();
   const { _id } = info;
+  const [movies,setMovies]= useState(info)
 
 
 const handleAddFavorites=()=>{
@@ -39,15 +40,17 @@ const handleAddFavorites=()=>{
 
 
 
-  const handleDelete = (_id) => {
-    console.log(_id);
+  const handleDelete = (id) => {
+   
 
-    fetch(`http://localhost:5000/movies/${_id}`,{
+    fetch(`http://localhost:5000/movies/${id}`,{
       method:"DELETE"
     })
     .then(res=>res.json())
     .then(data=>{
       console.log(data);
+      const remainingMovie = movies.filter(movie=>movie._id!== id)
+      setMovies(remainingMovie)
     })
    
   };

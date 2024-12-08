@@ -81,12 +81,14 @@ const Login = () => {
              Login
             </button>
 
-            <p>Have no account? <Link to='/signUp'>Sign Up</Link></p>
+            <p className='mt-2'>Have no account? <Link to='/signUp' className='text-red-400'>Sign Up</Link></p>
           </div>
 
 
 
-          <button onClick={handleLoginWithGoogle} className='btn btn-primary btn-wide'>Login With Google</button>
+          <div className='flex justify-center'>
+          <button onClick={handleLoginWithGoogle} className='btn bg-green-400  btn-wide'>Login With Google</button>
+          </div>
 
       {
         error&& toast.success('please check again')

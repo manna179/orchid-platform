@@ -116,7 +116,7 @@ const [error,setError]= useState('')
              register
             </button>
           </div>
-          <p>Already have an account? <Link to='/login'>Login</Link></p>
+          <p>Already have an account? <Link to='/login' className='text-red-500 ml-2'>Login</Link></p>
         </form>
   
         <Toaster />

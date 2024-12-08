@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
 
@@ -10,15 +10,29 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Extra from "../Pages/Extra";
 import AddMovieForm from "../Pages/AddMovieForm";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 const Home = () => {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme); // Persist theme
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
 
   const {user}=useContext(AuthContext)
   return (
     <div>
      
  <div className="flex justify-end mr-4">
+ <button onClick={toggleTheme}>
  <label className="swap swap-rotate ">
   {/* this hidden checkbox controls the state */}
   <input type="checkbox" className="theme-controller" value="synthwave" />
@@ -41,6 +55,7 @@ const Home = () => {
       d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
   </svg>
 </label>
+ </button>
  </div>
 
      <div className="mb-4">
@@ -63,7 +78,7 @@ const Home = () => {
       <Extra></Extra>
       </div>
 
-      <AddMovieForm></AddMovieForm>
+     
     </div>
   );
 };

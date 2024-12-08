@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         
           path: "/movies",
           element: <PrivateRoute>
-            <AddMovies></AddMovies>
+            <AddMovieForm></AddMovieForm>
           </PrivateRoute>,
         
       },

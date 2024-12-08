@@ -32,14 +32,21 @@ const AddMovieForm = () => {
       genre: data.genre.map((g) => g.value),
       releaseYear: data.releaseYear.value,
     };
-    const res = await fetch("http://localhost:5000/movies", {
-      method: "POST",
-      body: formattedData,
-    });
-
-    const info = await res.json();
-    console.log(info);
+  
+    try {
+      const res = await fetch("http://localhost:5000/movies", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }, // Ensure the backend knows it's receiving JSON
+        body: JSON.stringify(formattedData), // Convert to JSON string
+      });
+  
+      const info = await res.json();
+      console.log("Response from server:", info);
+    } catch (error) {
+      console.error("Error posting movie:", error);
+    }
   };
+  
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">

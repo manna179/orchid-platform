@@ -6,7 +6,7 @@ import SingleMovie from "../../SingleMovie/SingleMovie";
 const Movie = () => {
   const allMovie = useLoaderData();
   const [movie, setMovie] = useState(allMovie);
-  console.log(movie);
+  
 
   return (
     <div>

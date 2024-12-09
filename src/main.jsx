@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import AddMovies from "./Pages/AddMovies.jsx";
@@ -17,7 +16,7 @@ import PrivateRoute from "./Pages/PrivateRoute.jsx";
 import FavoriteMovie from "./Pages/FavoriteMovie.jsx";
 import ErrorPage from "./Pages/ErrorPage.jsx";
 import Extra from "./Pages/Extra.jsx";
-import MyForm from "./Pages/MyForm.jsx";
+
 import AddMovieForm from "./Pages/AddMovieForm.jsx";
 import FavMovies from "./Pages/FavMovies.jsx";
 
@@ -30,72 +29,68 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('https://orchid-server-side-rho.vercel.app/movies')
-
+        loader: () => fetch("https://orchid-server-side-rho.vercel.app/movies"),
       },
       {
-        path:'/login',
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path:'/signUp',
-        element:<SignUp></SignUp>
+        path: "/signUp",
+        element: <SignUp></SignUp>,
       },
       {
-        path:'/movie',
-        element:<Movie></Movie>,
-        loader:()=>fetch('https://orchid-server-side-rho.vercel.app/movies')
+        path: "/movie",
+        element: <Movie></Movie>,
+        loader: () => fetch("https://orchid-server-side-rho.vercel.app/movies"),
       },
       {
-        
-          path: "/movies",
-          element: <PrivateRoute>
+        path: "/movies",
+        element: (
+          <PrivateRoute>
             <AddMovieForm></AddMovieForm>
-          </PrivateRoute>,
-        
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/movie/:id',
-        element:<PrivateRoute>
-          <MovieDetails></MovieDetails>
-        </PrivateRoute>,
-        loader: ({ params }) => fetch(`https://orchid-server-side-rho.vercel.app/movies/${params.id}`)
+        path: "/movie/:id",
+        element: <MovieDetails></MovieDetails>,
+
+        loader: ({ params }) =>
+          fetch(
+            `https://orchid-server-side-rho.vercel.app/movies/${params.id}`
+          ),
       },
       {
-        path:'/favorite',
-        element:<PrivateRoute>
-          <FavoriteMovie></FavoriteMovie>
-        </PrivateRoute>,
-        
+        path: "/favorite",
+        element: <FavoriteMovie></FavoriteMovie>,
       },
       {
-        path:'/favorite/:id',
-        element:<FavMovies></FavMovies>,
-        loader:()=>fetch(`https://orchid-server-side-rho.vercel.app/favorite/${id}`)
+        path: "/favorite/:id",
+        element: <FavMovies></FavMovies>,
+        loader: () =>
+          fetch(`https://orchid-server-side-rho.vercel.app/favorite/${id}`),
       },
       {
-        path:'/extra',
-        element:<Extra></Extra>
+        path: "/extra",
+        element: <Extra></Extra>,
       },
       {
-        path:'/updateMovie',
-        element:<AddMovieForm></AddMovieForm>
-      }
+        path: "/updateMovie",
+        element: (
+          <PrivateRoute>
+            <AddMovieForm></AddMovieForm>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
-  {
-    path:'*',
-    element:<ErrorPage></ErrorPage>
-  }
- 
-  
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-   <AuthProvider>
-   <RouterProvider router={router} />
-   
-   </AuthProvider>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

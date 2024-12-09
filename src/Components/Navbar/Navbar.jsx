@@ -1,11 +1,20 @@
 import React, { useContext } from "react";
 import { IoMenu } from "react-icons/io5";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const { user, handleSignOut } = useContext(AuthContext);
-
+  
+const handleNavigate = (link)=>{
+  if(user){
+    navigate(link)
+  }else{
+    navigate(`/login?redirect=${link}`)
+    console.log(link);
+  }
+}
   return (
     <div className="navbar bg-pink-100 pl-4 pr-4 mx-auto">
       <div className="navbar-start">
@@ -24,10 +33,10 @@ const Navbar = () => {
               <NavLink to="/movie">all Movie</NavLink>
             </li>
             <li>
-              <NavLink to='/favorite'>My Favorites</NavLink>
+              <button onClick={()=>handleNavigate('/favorite')}  >My Favorites</button>
             </li>
             <li>
-              <NavLink to="/movies">Add Movies</NavLink>
+              <NavLink to='/movies'>Add Movies</NavLink>
             </li>
           </ul>
         </div>
@@ -48,10 +57,10 @@ const Navbar = () => {
             <NavLink to="/movie">All Movies</NavLink>
           </li>
           <li>
-            <NavLink to='/favorite'>My Favorites</NavLink>
+          <button onClick={()=>handleNavigate('/favorite')}  >My Favorites</button>
           </li>
           <li>
-            <NavLink to="/movies">Add Movies</NavLink>
+            <NavLink to='/movies'>Add Movies</NavLink>
           </li>
         </ul>
       </div>

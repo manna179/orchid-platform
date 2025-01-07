@@ -26,14 +26,14 @@ const FavMovies = ({singleFav,getAllFavMovies}) => {
     };
 
   return (
-    <div className="card glass w-96">
+    <div className=" glass mb-4 rounded-lg">
       <figure>
-        <img className="h-[300px] w-full rounded-md m-2"
+        <img className="h-[200px] w-full rounded-md "
           src={poster}
           alt={title}
         />
       </figure>
-      <div className="card-body">
+      <div className="">
         <h2 className="card-title">{title}</h2>
         <p className="text-red-400">Genre : <span className="text-black font-medium">{genre}</span></p>
         

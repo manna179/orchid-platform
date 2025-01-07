@@ -16,7 +16,7 @@ const handleNavigate = (link)=>{
   }
 }
   return (
-    <div className="navbar bg-pink-100 pl-4 pr-4 mx-auto">
+    <div className="navbar bg-pink-200 px-8 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,7 +33,7 @@ const handleNavigate = (link)=>{
               <NavLink to="/movie">all Movie</NavLink>
             </li>
             <li>
-              <button onClick={()=>handleNavigate('/favorite')}  >My Favorites</button>
+             <NavLink> <button onClick={()=>handleNavigate('/favorite')}  >My Favorites</button></NavLink>
             </li>
             <li>
               <NavLink to='/movies'>Add Movies</NavLink>

@@ -11,7 +11,11 @@ const Header = () => {
      
 
       <Outlet></Outlet>
+      <div className="w-full">
+      <div className="bg-pink-200">
       <Footer></Footer>
+      </div>
+      </div>
     </div>
   );
 };

@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { data, Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import Lottie from 'lottie-react';
+import register from '../../assets/lottie/register.json'
 
 const SignUp = () => {
 
@@ -58,12 +60,13 @@ const [error,setError]= useState('')
   
 
     return (
-        <div className=" max-w-3xl mx-auto border m-2 rounded-lg">
+        <div className=" items-center p-4 gap-10 flex w-11/12 mx-auto bg-slate-100 border  rounded-lg">
         
-        <form onSubmit={handleSubmit} className="card-body">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Name</span>
+        <form onSubmit={handleSubmit} className=" w-full">
+          <h2 className='text-3xl font-bold text-center'>Register Now!</h2>
+          <div className="form-control ">
+            <label className="label ">
+              <span className="label-text ">Name</span>
             </label>
             <input
               name="name"
@@ -117,8 +120,11 @@ const [error,setError]= useState('')
              register
             </button>
           </div>
-          <p>Already have an account? <Link to='/login' className='text-red-500 ml-2'>Login</Link></p>
+          <p className='my-8 text-center'>Already have an account? <Link to='/login' className='text-red-500 btn btn-link '>Login</Link></p>
         </form>
+        <div className='w-full'>
+      <Lottie animationData={register}></Lottie>
+        </div>
   
         <Toaster />
        

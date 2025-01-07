@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-neutral text-neutral-content p-10">
-      <aside>
+    <footer className="footer w-11/12 mx-auto  text-gray-600 p-10">
+      <aside className="flex flex-col">
         <BiMoviePlay className="w-16 h-16" />
         <p>
           ORCHID.com
@@ -16,8 +16,8 @@ const Footer = () => {
         </p>
       </aside>
       <nav>
-        <h6 className="footer-title text-gray-100">Social</h6>
-        <div className="grid grid-flow-col gap-4">
+        <h6 className="footer-title text-gray-600">Social</h6>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link to='https://x.com/'>
             <FaTwitter className="h-12 w-12" />
           </Link>

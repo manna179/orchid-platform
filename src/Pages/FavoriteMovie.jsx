@@ -25,7 +25,7 @@ const FavoriteMovie = () => {
   }, []);
 
   return (
-    <div className="min-h-screen mx-auto">
+    <div className="w-11/12 mx-auto">
       <h2 className="text-4xl font-semibold text-center mt-4">
         Your Favorite Movies
       </h2>
@@ -34,7 +34,7 @@ const FavoriteMovie = () => {
          
           collection : <span className="text-black">( {data?.length} )</span>
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto md:gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 ">
           {data?.map((singleFav) => (
             <FavMovies key={singleFav._id} singleFav={singleFav} getAllFavMovies={getAllFavMovies}></FavMovies>
           ))}

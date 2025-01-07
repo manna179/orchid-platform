@@ -71,7 +71,7 @@ const handleAddFavorites=()=>{
         <p className="text-red-400 ">duration : <span className="text-black font-medium">{info.minutes}</span> Min</p>
         <p className="text-red-400 ">release : <span className="text-black font-medium">{info.releaseYear}</span></p>
         <p className="text-red-400 ">rating : <span className="text-black font-medium">{info.rating}</span> </p>
-        <p className="text-gray-500">summary : {info.summary}</p>
+        <p className="text-gray-500"><span className="text-red-500">summary :</span> {info.summary}</p>
 
         <div className="card-actions justify-end">
           <button className="btn bg-red-400" onClick={() => handleDelete(_id)}>

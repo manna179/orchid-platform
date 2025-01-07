@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import Lottie from "lottie-react";
+import login from '../../assets/lottie/login.json'
 
 const Login = () => {
   const { signInUser, setUser, handleGoogleLogin } = useContext(AuthContext);
@@ -32,11 +34,8 @@ const Login = () => {
   const handleLoginWithGoogle = () => {
     handleGoogleLogin()
       .then((res) => {
-        if (location.state.from) {
-          navigate(location.state.from);
-        } else {
-          navigate("/");
-        }
+        navigate('/')
+       
       })
       .catch((err) => {
         const result = err.message;
@@ -44,8 +43,9 @@ const Login = () => {
       });
   };
   return (
-    <div className=" max-w-3xl mx-auto border m-2 rounded-lg">
-      <form onSubmit={handleSubmit} className="card-body">
+    <div className=" w-11/12 flex items-center bg-slate-100 p-2 mx-auto border gap-10 rounded-lg">
+      <form onSubmit={handleSubmit} className="w-full">
+        <h2 className="text-3xl font-bold text-center">Login Now!</h2>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
@@ -83,28 +83,37 @@ const Login = () => {
             Login
           </button>
 
-          <p className="mt-2">
+          <p className="my-4 text-center  ">
             Have no account?{" "}
-            <Link to="/signUp" className="text-red-400">
+            <Link to="/signUp" className="btn btn-link text-red-500 ">
               Sign Up
             </Link>
           </p>
         </div>
 
-        <div className="flex justify-center"></div>
+       
 
-        {error && toast.success("please check again")}
+       
         <Toaster></Toaster>
-      </form>
-      <button
+        <div className="text-center">
+        <button
         type="button"
         onClick={handleLoginWithGoogle}
-        className="btn bg-green-400  btn-wide"
+        className="btn bg-red-400  btn-wide"
       >
         Login With Google
       </button>
+        </div>
 
-      <Navigate state={location.pathname}></Navigate>
+        {error && toast.error(error)}
+
+<Navigate state={location.pathname}></Navigate>
+      </form>
+      <div className="w-full">
+        <Lottie animationData={login}></Lottie>
+      </div>
+      
+    
     </div>
   );
 };

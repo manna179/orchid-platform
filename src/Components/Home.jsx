@@ -6,6 +6,8 @@ import Movie from "./Navbar/Movie/Movie";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Extra from "../Pages/Extra";
+import Promotion from "./Promotion/Promotion";
+import Download from "./Download/Download";
 
 const Home = () => {
   const [theme, setTheme] = useState(() => {
@@ -25,7 +27,7 @@ const Home = () => {
   const { user } = useContext(AuthContext);
   return (
     <div>
-      <div className="flex justify-end mr-4">
+      {/* <div className="flex justify-end mr-4">
         <button onClick={toggleTheme}>
           <label className="swap swap-rotate ">
             <input
@@ -51,9 +53,9 @@ const Home = () => {
             </svg>
           </label>
         </button>
-      </div>
+      </div> */}
 
-      <div className="mb-4">
+      <div className="mb-4 mt-6 w-11/12 mx-auto space-y-2">
         <h2 className="text-3xl font-bold text-center">
           Movie For Spend Your Time
         </h2>
@@ -63,17 +65,32 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="h-[500px]">
+      <div className="mb-4">
         <Banner></Banner>
       </div>
-      <Movie></Movie>
-      <Link to="/movie">
-        <button className="btn w-full bg-red-400 my-10">See All Movies</button>
-      </Link>
+     <div className="w-11/12 mx-auto">
+      <h2 className="text-3xl font-bold text-center"> Must-Watch Movies</h2>
+      <p className="text-center text-lg font-medium">Grab the popcorn and settle in for an epic ride. Stream now!</p>
+     <Movie></Movie>
 
-      <div className="flex justify-center">
-        <Extra></Extra>
+      <Link className="w-11/12 mx-auto" to="/movie">
+        <button className="btn w-full bg-pink-300 my-10">See All Movies</button>
+      </Link>
+     </div>
+
+
+      {/* promotion */}
+      <div className="w-11/12 mx-auto">
+      <Promotion></Promotion>
       </div>
+
+      {/* <div className="flex justify-center">
+        <Extra></Extra>
+      </div> */}
+
+     <div className="w-11/12 mx-auto mb-4">
+     <Download></Download>
+     </div>
     </div>
   );
 };

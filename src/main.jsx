@@ -31,14 +31,8 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => fetch("https://orchid-server-side-rho.vercel.app/movies"),
       },
-      {
-        path: "/login",
-        element: <Login></Login>,
-      },
-      {
-        path: "/signUp",
-        element: <SignUp></SignUp>,
-      },
+      
+      
       {
         path: "/movie",
         element: <Movie></Movie>,
@@ -84,6 +78,14 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/signUp",
+    element: <SignUp></SignUp>,
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
   },
 ]);
 

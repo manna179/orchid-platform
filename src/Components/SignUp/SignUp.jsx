@@ -4,6 +4,8 @@ import { data, Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import Lottie from 'lottie-react';
 import register from '../../assets/lottie/register.json'
+import { IoReturnUpBackSharp } from 'react-icons/io5';
+import { IoIosHome } from 'react-icons/io';
 
 const SignUp = () => {
 
@@ -121,6 +123,8 @@ const [error,setError]= useState('')
             </button>
           </div>
           <p className='my-8 text-center'>Already have an account? <Link to='/login' className='text-red-500 btn btn-link '>Login</Link></p>
+
+           <div className="text-2xl flex justify-end"> <Link to='/' className="flex items-center gap-2 text-red-400"> <IoReturnUpBackSharp /> <IoIosHome /></Link></div>
         </form>
         <div className='w-full'>
       <Lottie animationData={register}></Lottie>

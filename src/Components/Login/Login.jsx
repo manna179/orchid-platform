@@ -4,6 +4,8 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import Lottie from "lottie-react";
 import login from '../../assets/lottie/login.json'
+import { IoIosHome } from "react-icons/io";
+import { IoReturnUpBackSharp } from "react-icons/io5";
 
 const Login = () => {
   const { signInUser, setUser, handleGoogleLogin } = useContext(AuthContext);
@@ -103,6 +105,7 @@ const Login = () => {
       >
         Login With Google
       </button>
+     <div className="text-2xl flex justify-end"> <Link to='/' className="flex items-center gap-2 text-red-400"> <IoReturnUpBackSharp /> <IoIosHome /></Link></div>
         </div>
 
         {error && toast.error(error)}
